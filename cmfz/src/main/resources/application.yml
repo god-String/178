@@ -1,0 +1,38 @@
+#服务器
+server:
+  port: 9999
+  servlet:
+    context-path: /cmfz
+    jsp:
+      init-parameters:
+        development: true
+
+#数据库 数据源  配置数据解析规则
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cxyz?characterEncoding=UTF-8
+    username: root
+    password: 1234
+    type: com.alibaba.druid.pool.DruidDataSource
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+    #date-format: yyyy-MM-dd
+#注册 实体类 别名  mapper
+mybatis:
+  type-aliases-package: com.baizhi.zjy.entity
+  mapper-locations: classpath:com/baizhi/zjy/mapper/*.xml
+
+#日志
+logging:
+  level:
+    root: info
+    com.baizhi.zjy.dao: info
+    com.baizhi.zjy.service: info
+    com.baizhi.zjy.controller: info
